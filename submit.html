@@ -78,20 +78,32 @@
         .music-controls {
             margin-top: 20px;
         }
+
+        /* 🎉 Updated Button Style */
         .button {
+            position: relative;
+            padding: 15px 40px;
+            font-size: 16px;
             font-family: 'Press Start 2P', cursive;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #6a03e9, #c774e8);
-            color: white;
             border: none;
-            border-radius: 15px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.3s ease-in-out;
+            background: linear-gradient(90deg, #e772ce, #e772ce, #e772ce);
+            color: white;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
         }
+
         .button:hover {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, #c774e8, #6a03e9);
+            background: linear-gradient(90deg, #ff758c, #ff7eb3, #ff758c);
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         /* New styles for the screenshot text */
