@@ -1,109 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            body {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: rgb(252, 240, 228);
-                background-image: url('https://images8.alphacoders.com/105/thumb-1920-1055726.png');
-                background-size: 100% 100%;
-                background-position: center;
-                background-repeat: no-repeat;
-                font-family: 'Press Start 2P', cursive;
-                text-align: center;
-                user-select: none;
-                position: relative;
-            }
-            .container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            .gif-holder {
-                width: 150px; 
-                height: 150px;
-                margin-bottom: 10px;
-            }
-            .gif-holder img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 15px;
-            }
-            .input-box {
-                font-family: 'Press Start 2P', cursive;
-                font-size: 14px;
-                padding: 10px;
-                width: 250px;
-                border: 3px solid black;
-                background-color: white;
-                margin-top: 20px;
-                text-align: center;
-            }
-            .button {
-                font-family: 'Press Start 2P', cursive;
-                margin-top: 20px;
-                padding: 12px 24px;
-                background: linear-gradient(135deg, #6a03e9, #c774e8);
-                color: white;
-                border: none;
-                border-radius: 25px;
-                font-size: 14px;
-                cursor: pointer;
-                transition: transform 0.3s ease-in-out;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-                text-transform: uppercase;
-            }
-            .button:hover {
-                transform: scale(1.1);
-                background: linear-gradient(135deg, #c774e8, #6a03e9);
-            }
-            .hidden {
-                display: none;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="gif-holder">
-                <img id="gifImage" src="images/output-onlinegiftools (2).gif" alt="Cute Valentine GIF">
-            </div>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(252, 240, 228);
+            background-image: url('https://images8.alphacoders.com/105/thumb-1920-1055726.png');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            user-select: none;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .gif-holder {
+            width: 150px; 
+            height: 150px;
+            margin-bottom: 10px;
+        }
+        .gif-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        .input-box {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            padding: 10px;
+            width: 250px;
+            border: 3px solid black;
+            background-color: white;
+            margin-top: 20px;
+            text-align: center;
+        }
 
-            <h1>Favorite Food</h1>
-            <form id="foodForm">
-                <input type="text" id="foodInput" name="food" class="input-box" placeholder="Type ka dito">
-                <button type="button" class="button" id="submitButton" onclick="submitFood()">Submit</button>
-            </form>
-            <div class="hidden" id="actionButtons">
-                <button class="button" onclick="editFood()">UNDO</button>
-            </div>
+
+        .button {
+            position: relative;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-family: 'Press Start 2P', cursive;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: linear-gradient(90deg, #e772ce, #e772ce, #e772ce);
+            color: white;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background: linear-gradient(90deg, #ff758c, #ff7eb3, #ff758c);
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gif-holder">
+            <img id="gifImage" src="images/output-onlinegiftools (2).gif" alt="Cute Valentine GIF">
         </div>
 
-        <script>
-            let params = new URLSearchParams(window.location.search);
-            let date = params.get("date") || "No date selected";
-            let gift = params.get("gift") || "0";
+        <h1>Favorite Food</h1>
+        <form id="foodForm">
+            <input type="text" id="foodInput" name="food" class="input-box" placeholder="Type ka dito">
+            <button type="button" class="button" id="submitButton" onclick="submitFood()">Submit</button>
+        </form>
+        <div class="hidden" id="actionButtons">
+            <button class="button" onclick="editFood()">UNDO</button>
+        </div>
+    </div>
 
-            function submitFood() {
-                let food = document.getElementById("foodInput").value;
-                if (food.trim() !== "") {
-                    window.location.href = `choose2.html?date=${encodeURIComponent(date)}&gift=${gift}&food=${encodeURIComponent(food)}`;
-                }
-            }
+    <script>
+        let params = new URLSearchParams(window.location.search);
+        let date = params.get("date") || "No date selected";
+        let gift = params.get("gift") || "0";
 
-            function editFood() {
-                window.location.href = "yes.html";
+        function submitFood() {
+            let food = document.getElementById("foodInput").value;
+            if (food.trim() !== "") {
+                window.location.href = `choose2.html?date=${encodeURIComponent(date)}&gift=${gift}&food=${encodeURIComponent(food)}`;
             }
-        </script>
-    </body>
+        }
+
+        function editFood() {
+            window.location.href = "yes.html";
+        }
+    </script>
+</body>
 </html>
