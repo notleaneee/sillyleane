@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(252, 240, 228);
+    background-image: url('https://images8.alphacoders.com/105/thumb-1920-1055726.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#noButton {
+    position: absolute;
+    margin-left: 180px;
+    margin-top: 50px;
+    transition: 0.5s;
+}
+
+#yesButton {
+    position: absolute;
+    margin-right: 225px;
+    margin-top: 50px;
+}
+
+.header_text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.btn {
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(135deg, #6a03e9, #c774e8);
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #c774e8, #6a03e9);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Next Button */
+.next-button {
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #e8c2ff, #fad0c4);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+.next-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #fad0c4, #e8c2ff);
+}

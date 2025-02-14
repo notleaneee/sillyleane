@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./styles.css">
+        <style>
+            body {
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .btn {
+                transition: transform 0.5s ease-in-out, top 0.5s ease-in-out, left 0.5s ease-in-out;
+                position: absolute;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                position: relative;
+            }
+            .gif_container {
+                position: relative;
+                display: flex;
+                justify-content: center;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            .buttons {
+                position: relative;
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head> 
+    <body>
+        <div class="container">
+            <div>
+                <h1 class="header_text">Can I be your Valentine?</h1>
+            </div>
+            <div class="gif_container">
+                <img id="gifImage" src="images/output-onlinegiftools.gif" alt="Cute Valentine GIF">
+            </div>
+            <div class="buttons">
+                <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+                <script>
+                    function nextPage() {
+                        window.location.href = "yes.html";
+                    }
+                    
+                    function moveButton() {
+                        var button = document.getElementById('noButton');
+                        var container = document.querySelector('.container');
+                        var maxX = container.clientWidth - button.offsetWidth - 20;
+                        var minY = -500; 
+                        var maxY = -100; 
+                        
+                        var x = Math.random() * maxX;
+                        var y = Math.random() * (maxY - minY) + minY;
+                        
+                        button.style.position = 'absolute';
+                        button.style.transform = `translate(${x}px, ${y}px)`;
+                    }
+                </script> 
+            </div>
+        </div>
+    </body> 
+</html>

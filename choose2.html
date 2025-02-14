@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="player">
+        <div class="record">
+            <div class="label"></div>
+        </div>
+        <div class="tone-arm">
+            <div class="control"></div>
+        </div>
+        <button class="btn"></button>
+        <div class="slider-container">
+            <input type="range" class="slider" min="0" max="1" step="0.1" value="0.7">
+        </div>
+    </div>
+
+    <p class="click-text">Click me!</p>
+
+    <audio loop class="my-song" src="images/bewitched1.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+
+    <button class="next-btn" onclick="goToNext()">SKIP</button>
+
+    <script>
+        let params = new URLSearchParams(window.location.search);
+        let date = params.get("date") || "No date selected";
+        let gift = params.get("gift") || "0";
+        let food = params.get("food") || "No food selected";
+
+        function goToNext() {
+            window.location.href = `time.html?date=${encodeURIComponent(date)}&gift=${gift}&food=${encodeURIComponent(food)}`;
+        }
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw; 
+            margin: 0; 
+            padding: 0; 
+            background-color: rgb(252, 240, 228);
+            background-image: url('https://images8.alphacoders.com/105/thumb-1920-1055726.png');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+        }
+
+        .click-text {
+            margin-top: 163px;
+            margin-left: 250px;
+            font-size: 14px;
+            color: #6a03e9;
+            text-transform: uppercase;
+            font-family: 'Press Start 2P', cursive; 
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .hidden-letter {
+            opacity: 0;
+            position: absolute;
+            top: 65%; 
+            left: 50%;
+            transform: translate(-50%, 50px); 
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            font-size: 14px;
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            width: 60%;
+            min-height: 150px;
+            line-height: 1.5;
+        }
+
+        .show-letter {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        .next-btn {
+            margin-top: 50px;
+            margin-right: 180px;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-family: 'Press Start 2P', cursive;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: linear-gradient(90deg, #e772ce, #e772ce, #e772ce);
+            color: white;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+        }
+
+        .next-btn:hover {
+            background: linear-gradient(90deg, #ff758c, #ff7eb3, #ff758c);
+            transform: scale(1.05);
+        }
+    </style>
+</body>
+</html>
