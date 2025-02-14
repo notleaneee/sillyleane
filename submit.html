@@ -1,156 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            body {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: rgb(252, 240, 228);
-                background-image: url('https://images8.alphacoders.com/105/thumb-1920-1055726.png');
-                background-size: 100% 100%;
-                background-position: center;
-                background-repeat: no-repeat;
-                font-family: 'Press Start 2P', cursive;
-                text-align: center;
-                user-select: none;
-                position: relative;
-            }
-            .container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px;
-                border: 5px solid black;
-                border-radius: 15px;
-                background-color: rgb(255, 233, 233);
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            }
-            .food-display, .date-display {
-                font-size: 16px;
-                margin-top: 20px;
-                padding: 10px;
-                background: linear-gradient(135deg, #6a03e9, #c774e8);
-                color: white;
-                border-radius: 10px;
-                border: 2px solid black;
-                width: 80%;
-                text-align: center;
-            }
-            h2 {
-                margin-top: 30px;
-            }
-            .gift-image {
-                margin-top: 10px;
-                width: 200px;
-                height: 250px;
-                border-radius: 15px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-                object-fit: cover;
-            }
-            .invite-text {
-                font-size: 18px;
-                margin-top: 20px;
-                color: #9036ff;
-                font-family: 'Press Start 2P', cursive;
-            }
-            .ticket-image {
-                margin-top: 20px;
-                width: 350px;
-                height: auto;
-                border-radius: 15px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            }
-            .music-controls {
-                margin-top: 20px;
-                text-align: center;
-            }
-            .button {
-                font-family: 'Press Start 2P', cursive;
-                padding: 10px 20px;
-                background: linear-gradient(135deg, #6a03e9, #c774e8);
-                color: white;
-                border: none;
-                border-radius: 15px;
-                cursor: pointer;
-                transition: transform 0.3s ease-in-out;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            }
-            .button:hover {
-                transform: scale(1.1);
-                background: linear-gradient(135deg, #c774e8, #6a03e9);
-            }
-            .small-text {
-                font-size: 12px;
-                margin-top: 5px;
-                color: #6a03e9;
-                font-family: 'Press Start 2P', cursive;
-            }
-        </style>
-    </head>
-    <body>
-        <audio id="backgroundMusic" loop src="images/valentine.mp3" preload="auto"></audio>
-        
-        <div class="container">
-            <h1>Receipt</h1>
-            <p class="invite-text">You are invited to a movie night with me!</p>
-            <img src="images/happyvdticket.png" alt="Movie Night Ticket" class="ticket-image">
-            <p class="date-display" id="dateDisplay"></p>
-            <p class="food-display" id="foodDisplay"></p>
-            <h2>My Gift to you</h2>
-            <img id="giftImage" class="gift-image" src="" alt="Selected Gift">
-            <div class="music-controls">
-                <button class="button" onclick="toggleMusic()">Play / Mute</button>
-                <p class="small-text">Send a screenshot to me ❤</p>
-            </div>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgb(252, 240, 228);
+            background-image: url('https://images8.alphacoders.com/105/thumb-1920-1055726.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            user-select: none;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border: 5px solid black;
+            border-radius: 15px;
+            background-color: rgb(255, 233, 233);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90vw;
+            max-width: 600px;
+            min-width: 300px;
+        }
+        .food-display, .date-display {
+            font-size: 16px;
+            margin-top: 20px;
+            padding: 10px;
+            background: linear-gradient(135deg, #6a03e9, #c774e8);
+            color: white;
+            border-radius: 10px;
+            border: 2px solid black;
+            width: 90%;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        .gift-image {
+            margin-top: 10px;
+            width: 80%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+        }
+        .invite-text {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #6a03e9;
+            font-family: 'Press Start 2P', cursive;
+        }
+        .ticket-image {
+            margin-top: 20px;
+            width: 80%;
+            height: auto;
+            max-width: 350px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .music-controls {
+            margin-top: 20px;
+        }
+        .button {
+            font-family: 'Press Start 2P', cursive;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #6a03e9, #c774e8);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #c774e8, #6a03e9);
+        }
+
+        /* New styles for the screenshot text */
+        .screenshot-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" loop class="my-song" src="images/valentine.mp3" preload="auto"></audio>
+    
+    <div class="container">
+        <h1>Receipt</h1>
+        <p class="invite-text">You are invited to a movie night with me!</p>
+        <img src="images/happyvdticket.png" alt="Movie Night Ticket" class="ticket-image">
+        <p class="date-display" id="dateDisplay"></p>
+        <p class="food-display" id="foodDisplay"></p>
+        <h2>My Gift to you</h2>
+        <img id="giftImage" class="gift-image" src="" alt="Selected Gift">
+        <div class="music-controls">
+            <button class="button" onclick="toggleMusic()">Play/Mute</button>
         </div>
+    </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                let params = new URLSearchParams(window.location.search);
-                let food = params.get("food") || "No food selected";
-                let date = params.get("date") || "No date selected";
-                let giftIndex = params.get("gift");
+    <!-- New Text Below the Container -->
+    <p class="screenshot-text">Send a screenshot to me</p>
 
-                document.getElementById("foodDisplay").innerText = "Food: " + food;
-                document.getElementById("dateDisplay").innerText = "Date: " + date;
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let params = new URLSearchParams(window.location.search);
+            let food = params.get("food") || "No food selected";
+            let date = params.get("date") || "No date selected";
+            let giftIndex = parseInt(params.get("gift"), 10);
 
-                let giftImages = [
-                    "https://www.shutterstock.com/image-vector/strawberry-cake-pixel-art-style-600nw-2312183339.jpg",
-                    "https://i.pinimg.com/736x/94/6f/e7/946fe7042b8eb290ee0df821bdc7c116.jpg",
-                    "https://static.vecteezy.com/system/resources/previews/023/874/632/non_2x/necklace-jewelry-luxury-game-pixel-art-illustration-vector.jpg",
-                    "https://i.pinimg.com/736x/5b/e8/62/5be862bcbb0b636ea1174c9627e9593d.jpg",
-                    "https://play-lh.googleusercontent.com/FXHNsva4Uhp-4XBhdN9k_Wfn5cGUNlhO24X9Z95Vvecm2Jdf8Td4-2HF0_Tf3kbOC9E"
-                ];
+            document.getElementById("foodDisplay").innerText = "Food: " + food;
+            document.getElementById("dateDisplay").innerText = "Date: " + date;
 
-                if (giftIndex && giftIndex >= 1 && giftIndex <= giftImages.length) {
-                    document.getElementById("giftImage").src = giftImages[giftIndex - 1];
-                } else {
-                    document.getElementById("giftImage").style.display = "none";
-                    document.querySelector("h2").innerText = "No gift selected.";
-                }
+            let giftImages = [
+                "https://www.shutterstock.com/image-vector/strawberry-cake-pixel-art-style-600nw-2312183339.jpg",
+                "https://i.pinimg.com/736x/94/6f/e7/946fe7042b8eb290ee0df821bdc7c116.jpg",
+                "https://static.vecteezy.com/system/resources/previews/023/874/632/non_2x/necklace-jewelry-luxury-game-pixel-art-illustration-vector.jpg",
+                "https://i.pinimg.com/736x/5b/e8/62/5be862bcbb0b636ea1174c9627e9593d.jpg",
+                "https://play-lh.googleusercontent.com/FXHNsva4Uhp-4XBhdN9k_Wfn5cGUNlhO24X9Z95Vvecm2Jdf8Td4-2HF0_Tf3kbOC9E"
+            ];
 
-                // Try autoplay
-                let music = document.getElementById("backgroundMusic");
-                music.play().catch(error => console.log('Autoplay blocked:', error));
-            });
-
-            function toggleMusic() {
-                let music = document.getElementById("backgroundMusic");
-                if (music.paused) {
-                    music.play();
-                } else {
-                    music.pause();
-                }
+            if (!isNaN(giftIndex) && giftIndex >= 1 && giftIndex <= giftImages.length) {
+                document.getElementById("giftImage").src = giftImages[giftIndex - 1];
+            } else {
+                document.getElementById("giftImage").style.display = "none";
+                document.querySelector("h2").innerText = "No gift selected.";
             }
-        </script>
-    </body>
+        });
+
+        function toggleMusic() {
+            let music = document.getElementById("backgroundMusic");
+            if (music.paused || music.muted) {
+                music.muted = false;
+                music.play();
+            } else {
+                music.muted = true;
+                music.pause();
+            }
+        }
+
+        window.addEventListener('load', function() {
+            let music = document.getElementById("backgroundMusic");
+            music.play().catch(error => console.log('Autoplay blocked:', error));
+        });
+    </script>
+</body>
 </html>
