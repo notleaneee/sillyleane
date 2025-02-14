@@ -27,7 +27,7 @@
     <audio loop class="my-song" src="images/bewitched1.mp3" preload="auto"></audio>
     <script src="script.js"></script>
 
-    <button class="next-btn" onclick="goToNext()">SKIP</button>
+    <button class="next-btn" onclick="goToNext()">NEXT</button>
 
     <script>
         let params = new URLSearchParams(window.location.search);
@@ -57,11 +57,13 @@
             background-repeat: no-repeat;
             font-family: 'Press Start 2P', cursive;
             text-align: center;
+            position: relative; 
         }
 
+
         .click-text {
-            margin-top: 163px;
-            margin-left: 250px;
+            margin-top: 170px;
+            margin-left: 215px;
             font-size: 14px;
             color: #6a03e9;
             text-transform: uppercase;
@@ -99,8 +101,10 @@
         }
 
         .next-btn {
-            margin-top: 50px;
-            margin-right: 180px;
+            position: absolute;
+            top: 20px; 
+            left: 50%; 
+            transform: translateX(-50%);
             padding: 15px 40px;
             font-size: 16px;
             font-family: 'Press Start 2P', cursive;
@@ -111,11 +115,12 @@
             color: white;
             transition: all 0.3s ease-in-out;
             text-transform: uppercase;
+            z-index: 10;
         }
 
         .next-btn:hover {
             background: linear-gradient(90deg, #ff758c, #ff7eb3, #ff758c);
-            transform: scale(1.05);
+
         }
     </style>
 </body>
